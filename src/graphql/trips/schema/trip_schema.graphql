@@ -1,0 +1,29 @@
+type Trip {
+  id: ID!
+  name: String
+  description: String
+  route: Route
+  placeOfInterest: [PlaceOfInterest]
+  tags: [String]
+}
+
+input AddTripInput {
+  name: String
+  description: String
+  ggmRoute: String!
+  placeOfInterest: [PlaceOfInterestInput]
+  tags: [String]
+}
+
+type Query {
+  getTrip(id: String!): Trip
+}
+
+type Mutation {
+  addTrip(input: AddTripInput): Response
+}
+
+type Response {
+  isSuccess: Boolean!
+  message: String!
+}

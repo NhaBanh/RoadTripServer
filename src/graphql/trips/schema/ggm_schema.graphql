@@ -1,0 +1,9 @@
+type Waypoint_GGM {
+    via: Boolean!
+    placeId: String!
+}
+
+input WaypointInput_GGM {
+    via: Boolean!
+    placeId: String!
+}

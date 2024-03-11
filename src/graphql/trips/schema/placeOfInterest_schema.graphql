@@ -1,0 +1,29 @@
+type PlaceOfInterest {
+    id: ID!
+    gmmPlace: Waypoint_GGM
+    vmPlace: String
+    name: String!
+    description: String
+    note: String
+    type: PlaceOfInterestTypeEnum!
+    tags: [String]
+    arrivedTime: Int
+}
+
+input PlaceOfInterestInput {
+    gmmPlace: WaypointInput_GGM
+    vmPlace: String
+    name: String!
+    description: String
+    note: String
+    type: PlaceOfInterestTypeEnum!
+    tags: [String]
+    arrivedTime: Int
+}
+
+enum PlaceOfInterestTypeEnum {
+    EAT
+    STAY_OVERNIGHT
+    STAY_REST
+    VISIT
+}

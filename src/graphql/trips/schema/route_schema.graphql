@@ -1,0 +1,7 @@
+type Route {
+  id: ID!
+  ggmRoute: String!
+}
+input RouteInput {
+  ggmRoute: String!
+}

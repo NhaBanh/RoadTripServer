@@ -1,0 +1,83 @@
+type Trip {
+  id: ID!
+  name: String!
+  description: String
+  route: Route
+  placeOfInterest: [PlaceOfInterest]
+  tags: [String]
+}
+
+input AddTripInput {
+  name: String!
+  description: String
+  route: RouteInput
+  placeOfInterest: [PlaceOfInterestInput]
+  tags: [String]
+}
+
+type Query {
+  getTrip(id: String!): Trip
+}
+
+type Mutation {
+  addTrip(input: AddTripInput): Response
+}
+
+type Response {
+  isSuccess: Boolean!
+  message: String!
+}
+
+##########
+
+type Route {
+  id: ID!
+  ggmRoute: String!
+}
+input RouteInput {
+  ggmRoute: String!
+}
+
+##########
+
+type PlaceOfInterest {
+    id: ID!
+    gmmPlace: Waypoint_GGM
+    vmPlace: String
+    name: String!
+    description: String
+    note: String
+    type: PlaceOfInterestTypeEnum!
+    tags: [String]
+    arrivedTime: Int
+}
+
+input PlaceOfInterestInput {
+    gmmPlace: WaypointInput_GGM
+    vmPlace: String
+    name: String!
+    description: String
+    note: String
+    type: PlaceOfInterestTypeEnum!
+    tags: [String]
+    arrivedTime: Int
+}
+
+enum PlaceOfInterestTypeEnum {
+    EAT
+    STAY_OVERNIGHT
+    STAY_REST
+    VISIT
+}
+
+######
+
+type Waypoint_GGM {
+    via: Boolean!
+    placeId: String!
+}
+
+input WaypointInput_GGM {
+    via: Boolean!
+    placeId: String!
+}

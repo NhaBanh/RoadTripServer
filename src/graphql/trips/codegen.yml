@@ -1,0 +1,12 @@
+schema: './src/graphql/trips/schema/schema.graphql'
+generates:
+  ./src/graphql/trips/__generated__/resolvers-types.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-resolvers'
+    config:
+      useIndexSignature: true
+      emitLegacyCommonJSImports: false
+      contextType: '../../../context.js#ServerContext'
+
+
